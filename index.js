@@ -2,7 +2,13 @@ const endPoint = "http://localhost:3000/api/v1/adventures"
 
 document.addEventListener('DOMContentLoaded', () => {
     getAdventures()
+
+    const createAdventureForm = document.querySelector ("#create-adventure-form")
+
+    createAdventureForm.addEventListener("submit", (e) => 
+    createFormHandler(e))
 })
+
 
 function getAdventures() {
     fetch(endPoint)
@@ -22,4 +28,10 @@ function getAdventures() {
           document.querySelector('#adventure-container').innerHTML += adventureMarkup
       })
     })
+}
+
+
+function createFormHandler(e) {
+  e.preventDefault()
+  debugger
 }

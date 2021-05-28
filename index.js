@@ -11,9 +11,10 @@ function getAdventures() {
       adventures.data.forEach(adventure => {
         const adventureMarkup = `
           <div data-id=${adventure.id}>
+          <h1>Adventures Available</h1>
             <img src=${adventure.attributes.image_url} height="200" width="250">
             <h3>${adventure.attributes.title}</h3>
-            <p>${adventure.attributes.category.name}</p>
+            <p>Category: ${adventure.attributes.category.name}</p>
             <button data-id=${adventure.id}>edit</button>
           </div>
           <br><br>`;

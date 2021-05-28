@@ -37,5 +37,5 @@ function createFormHandler(e) {
   const locationInput = document.querySelector('#input-location').value
   const descriptionInput = document.querySelector('#input-description').value
   const imageInput = document.querySelector('#input-url').value
-  const categoryInput = document.querySelector('#categories').value
+  const categoryId = parseInt(document.querySelector('#categories').value)
 }

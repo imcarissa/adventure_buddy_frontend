@@ -7,7 +7,36 @@
     </head>
     
     <body>
-        INDEX.HTML of Adventures
+        <h1>Adventure Buddy App</h1>
+
+        <div class="form-container">
+
+            <form id="create-adventure-form" style="">
+              <h3>Create an Adventure</h3>
+          
+              <input id='input-title' type="text" name="title" value="" placeholder="Title of your trip" class="input-text">
+              <br><br>
+              <input id='input-location' type="text" name="location" value="" placeholder="Enter the location" class="input-text">
+              <br><br>
+              <textarea id='input-description' name="description" rows="8" cols="80" value="" placeholder="Description of the adventure"></textarea>
+              <br><br>
+              <input id='input-url' type="text" name="image" value="" placeholder="Upload an image URL" class="input-text">
+              <br><br>
+          
+            Category:
+              <select id="categories" name="categories">
+                <option value="1">Business</option>
+                <option value="2">Domestic</option>
+                <option value="3">Reunion</option>
+                <option value="4">Vacation</option>
+                <option value="5">Wedding</option>
+              </select>
+              <br><br>
+          
+              <input id= 'create-button' type="submit" name="submit" value="Create Adventure!" class="submit">
+            </form>
+          
+        </div><br><br>
 
         <div id="adventure-container">
             

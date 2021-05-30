@@ -5,8 +5,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     const createAdventureForm = document.querySelector ("#create-adventure-form")
 
-    createAdventureForm.addEventListener("submit", (e) => 
-    createFormHandler(e))
+    createAdventureForm.addEventListener("submit", (e) => createFormHandler(e))
 })
 
 
@@ -14,10 +13,10 @@ function getAdventures() {
     fetch(endPoint)
     .then(response => response.json())
     .then(adventures => {
+      console.log(adventures);
       adventures.data.forEach(adventure => {
         const adventureMarkup = `
           <div data-id=${adventure.id}>
-          <h1>Adventures Available</h1>
             <img src=${adventure.attributes.image_url} height="200" width="250">
             <h3>${adventure.attributes.title}</h3>
             <p>Category: ${adventure.attributes.category.name}</p>
@@ -52,14 +51,13 @@ function postFetch(title, location, description, image_url, category_id) {
   })
   .then(response => response.json())
   .then(adventure => {
-    console.log(adventure);
-    const adventureData = adventure.data
+    const adventureData = adventure.data.attributes
     // render JSON response
     const adventureMarkup = `
     <div data-id=${adventure.id}>
-      <img src=${adventureData.attributes.image_url} height="200" width="250">
-      <h3>${adventureData.attributes.title}</h3>
-      <p>${adventureData.attributes.category.name}</p>
+      <img src=${adventureData.image_url} height="200" width="250">
+      <h3>${adventureData.title}</h3>
+      <p>${adventureData.category.name}</p>
       <button data-id=${adventureData.id}>edit</button>
     </div>
     <br><br>`;

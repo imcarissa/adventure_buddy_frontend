@@ -12,8 +12,8 @@ document.addEventListener('DOMContentLoaded', () => {
 function getAdventures() {
     fetch(endPoint)
     .then(response => response.json())
-    .then(get_adventures => {
-      get_adventures.data.forEach(adventure => {
+    .then(adventures => {
+      adventures.data.forEach(adventure => {
         
         const adventureMarkup = `
           <div data-id=${adventure.id}>
@@ -49,8 +49,8 @@ function postFetch(title, location, description, image_url, category_id) {
     body: JSON.stringify(bodyObj)
   })
   .then(response => response.json())
-  .then(post_adventure => {
-    const adventureData = post_adventure.data.attributes
+  .then(adventure => {
+    const adventureData = adventure.data.attributes
     // render JSON response
     const adventureMarkup = `
     <div data-id=${adventure.id}>

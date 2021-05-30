@@ -12,9 +12,9 @@ document.addEventListener('DOMContentLoaded', () => {
 function getAdventures() {
     fetch(endPoint)
     .then(response => response.json())
-    .then(adventures => {
-      console.log(adventures);
-      adventures.data.forEach(adventure => {
+    .then(get_adventures => {
+      get_adventures.data.forEach(adventure => {
+        
         const adventureMarkup = `
           <div data-id=${adventure.id}>
             <img src=${adventure.attributes.image_url} height="200" width="250">
@@ -44,14 +44,13 @@ function postFetch(title, location, description, image_url, category_id) {
   let bodyObj = {title, location, description, image_url, category_id}
   
   fetch(endPoint, {
-    // POST request
     method: "POST",
     headers: {"Content-Type": "application/json"},
     body: JSON.stringify(bodyObj)
   })
   .then(response => response.json())
-  .then(adventure => {
-    const adventureData = adventure.data.attributes
+  .then(post_adventure => {
+    const adventureData = post_adventure.data.attributes
     // render JSON response
     const adventureMarkup = `
     <div data-id=${adventure.id}>

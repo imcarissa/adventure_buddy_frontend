@@ -19,7 +19,9 @@ function getAdventures() {
           <div data-id=${adventure.id}>
             <img src=${adventure.attributes.image_url} height="200" width="250">
             <h3>${adventure.attributes.title}</h3>
-            <p>Category: ${adventure.attributes.category.name}</p>
+            <p><strong>Location:</strong> ${adventure.attributes.location}</p>
+            <p><strong>Description:</strong> ${adventure.attributes.description}</p>
+            <p><strong>Category:</strong> ${adventure.attributes.category.name}</p>
             <button data-id=${adventure.id}>edit</button>
           </div>
           <br><br>`;
@@ -56,6 +58,8 @@ function postFetch(title, location, description, image_url, category_id) {
     <div data-id=${adventure.id}>
       <img src=${adventureData.image_url} height="200" width="250">
       <h3>${adventureData.title}</h3>
+      <p>${adventureData.location}</p>
+      <p>${adventureData.description}</p>
       <p>${adventureData.category.name}</p>
       <button data-id=${adventureData.id}>edit</button>
     </div>

@@ -14,6 +14,7 @@ function getAdventures() {
     .then(response => response.json())
     .then(adventures => {
       adventures.data.forEach(adventure => {
+        
         render(adventure)
       })
     })
@@ -32,7 +33,7 @@ function render(adventure) {
     </div>
     <br><br>`;
 
-    document.querySelector('#adventure-container').innerHTML += adventureMarkup
+  document.querySelector('#adventure-container').innerHTML += adventureMarkup
 }
 
 
@@ -46,6 +47,7 @@ function createFormHandler(e) {
   postAdventures (titleInput, locationInput, descriptionInput, imageInput, categoryId)
 }
 
+
 function postAdventures(title, location, description, image_url, category_id) {
   let bodyObj = {title, location, description, image_url, category_id}
   
@@ -57,7 +59,7 @@ function postAdventures(title, location, description, image_url, category_id) {
   .then(response => response.json())
   .then(adventure => {
     const adventureData = adventure.data
-    // render JSON response
-    render(adventureData)
+    
+     render(adventureData)
   })
 }

@@ -14,21 +14,25 @@ function getAdventures() {
     .then(response => response.json())
     .then(adventures => {
       adventures.data.forEach(adventure => {
-        
-        const adventureMarkup = `
-          <div data-id=${adventure.id}>
-            <img src=${adventure.attributes.image_url} height="200" width="250">
-            <h3>${adventure.attributes.title}</h3>
-            <p><strong>Location:</strong> ${adventure.attributes.location}</p>
-            <p><strong>Description:</strong> ${adventure.attributes.description}</p>
-            <p><strong>Category:</strong> ${adventure.attributes.category.name}</p>
-            <button data-id=${adventure.id}>edit</button>
-          </div>
-          <br><br>`;
-
-          document.querySelector('#adventure-container').innerHTML += adventureMarkup
+        render(adventure)
       })
     })
+}
+
+
+function render(adventure) {
+  const adventureMarkup = `
+    <div data-id=${adventure.id}>
+      <img src=${adventure.attributes.image_url} height="200" width="250">
+      <h3>${adventure.attributes.title}</h3>
+      <p><strong>Location:</strong> ${adventure.attributes.location}</p>
+      <p><strong>Description:</strong> ${adventure.attributes.description}</p>
+      <p><strong>Category:</strong> ${adventure.attributes.category.name}</p>
+      <button data-id=${adventure.id}>edit</button>
+    </div>
+    <br><br>`;
+
+    document.querySelector('#adventure-container').innerHTML += adventureMarkup
 }
 
 
@@ -39,10 +43,10 @@ function createFormHandler(e) {
   const descriptionInput = document.querySelector('#input-description').value
   const imageInput = document.querySelector('#input-url').value
   const categoryId = parseInt(document.querySelector('#categories').value)
-  postFetch (titleInput, locationInput, descriptionInput, imageInput, categoryId)
+  postAdventures (titleInput, locationInput, descriptionInput, imageInput, categoryId)
 }
 
-function postFetch(title, location, description, image_url, category_id) {
+function postAdventures(title, location, description, image_url, category_id) {
   let bodyObj = {title, location, description, image_url, category_id}
   
   fetch(endPoint, {
@@ -52,19 +56,8 @@ function postFetch(title, location, description, image_url, category_id) {
   })
   .then(response => response.json())
   .then(adventure => {
-    const adventureData = adventure.data.attributes
+    const adventureData = adventure.data
     // render JSON response
-    const adventureMarkup = `
-    <div data-id=${adventure.id}>
-      <img src=${adventureData.image_url} height="200" width="250">
-      <h3>${adventureData.title}</h3>
-      <p>${adventureData.location}</p>
-      <p>${adventureData.description}</p>
-      <p>${adventureData.category.name}</p>
-      <button data-id=${adventureData.id}>edit</button>
-    </div>
-    <br><br>`;
-
-    document.querySelector('#adventure-container').innerHTML += adventureMarkup;
+    render(adventureData)
   })
 }

@@ -18,7 +18,7 @@ function getAdventures() {
     
         let newAdventure = new Adventure(adventure, adventure.attributes)
 
-        render(adventure)
+        document.querySelector('#adventure-container').innerHTML += newAdventure.renderAdventureCard()
       })
     })
 }

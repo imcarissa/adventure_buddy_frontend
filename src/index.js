@@ -14,7 +14,10 @@ function getAdventures() {
     .then(response => response.json())
     .then(adventures => {
       adventures.data.forEach(adventure => {
-        
+
+    
+        let newAdventure = new Adventure(adventure, adventure.attributes)
+
         render(adventure)
       })
     })

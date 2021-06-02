@@ -47,6 +47,8 @@ function postAdventures(title, location, description, image_url, category_id) {
   .then(adventure => {
     const adventureData = adventure.data
     
-     render(adventureData)
+    let newAdventure = new Adventure(adventureData, adventureData.attributes)
+
+    document.querySelector('#adventure-container').innerHTML += newAdventure.renderAdventureCard()
   })
 }

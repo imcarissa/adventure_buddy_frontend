@@ -10,19 +10,18 @@ class Adventure {
         Adventure.all.push(this)
     }
 
-    function render(adventure) {
-        const adventureMarkup = `
-          <div data-id=${adventure.id}>
-            <img src=${adventure.attributes.image_url} height="200" width="250">
-            <h3>${adventure.attributes.title}</h3>
-            <p><strong>Location:</strong> ${adventure.attributes.location}</p>
-            <p><strong>Description:</strong> ${adventure.attributes.description}</p>
-            <p><strong>Category:</strong> ${adventure.attributes.category.name}</p>
-            <button data-id=${adventure.id}>edit</button>
+    function render() {
+        return `
+          <div data-id=${this.id}>
+            <img src=${this.image_url} height="200" width="250">
+            <h3>${this.title}</h3>
+            <p><strong>Location:</strong> ${this.location}</p>
+            <p><strong>Description:</strong> ${this.description}</p>
+            <p><strong>Category:</strong> ${this.category.name}</p>
+            <button data-id=${this.id}>edit</button>
           </div>
           <br><br>`;
       
-        document.querySelector('#adventure-container').innerHTML += adventureMarkup
       }
 }
 

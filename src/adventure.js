@@ -10,7 +10,8 @@ class Adventure {
         Adventure.all.push(this)
     }
 
-    renderAdventureCard() {
+    renderAdventurePost() {
+      debugger
         return `
           <div data-id=${this.id}>
             <img src=${this.image_url} height="200" width="250">

@@ -15,10 +15,9 @@ function getAdventures() {
     .then(adventures => {
       adventures.data.forEach(adventure => {
 
-    
         let newAdventure = new Adventure(adventure, adventure.attributes)
 
-        document.querySelector('#adventure-container').innerHTML += newAdventure.renderAdventureCard()
+        document.querySelector('#adventure-container').innerHTML += newAdventure.renderAdventurePost()
       })
     })
 }

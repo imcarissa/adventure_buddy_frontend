@@ -51,3 +51,15 @@ function postAdventures(title, location, description, image_url, category_id) {
     document.querySelector('#adventure-container').innerHTML += newAdventure.renderAdventureCard()
   })
 }
+
+function deleteAdventure(e) {
+  e.preventDefault()
+  let userId = parseInt(e.target.dataset.id)
+
+  fetch(endPoint + `/${this.id}`, {
+      method: "DELETE",
+      headers: {"Content-Type": "application/json"},
+  })
+
+  this.location.reload()
+}

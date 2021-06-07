@@ -18,7 +18,7 @@ class Adventure {
             <p><strong>Location:</strong> ${this.location}</p>
             <p><strong>Description:</strong> ${this.description}</p>
             <p><strong>Category:</strong> ${this.category.name}</p>
-            <button data-id=${this.id}>edit</button>
+            <button class="delete-btn" data-id=${this.id}>Delete Adventure</button>
           </div>
           <br><br>`;     
       }

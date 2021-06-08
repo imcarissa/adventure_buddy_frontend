@@ -9,6 +9,16 @@ document.addEventListener('DOMContentLoaded', () => {
 
 })
 
+document.addEventListener("click", function(e) {
+  const adventureCard = document.getElementById(`${e.target.dataset.id}`)
+
+  if(e.target.matches("#delete-btn")) {
+    e.preventDefault()
+    deleteAdventure(e.target.dataset.id)
+    adventureCard.remove(adventureCard)
+  }
+})
+
 
 function getAdventures() {
     fetch(endPoint)
@@ -24,8 +34,8 @@ function getAdventures() {
 }
 
 
-function createFormHandler() {
-  event.preventDefault()
+function createFormHandler(e) {
+  e.preventDefault()
   const titleInput = document.querySelector('#input-title').value
   const locationInput = document.querySelector('#input-location').value
   const descriptionInput = document.querySelector('#input-description').value
@@ -53,13 +63,15 @@ function postAdventures(title, location, description, image_url, category_id) {
   })
 }
 
-function deleteAdventure() {
 
-  let adventureId = parseInt(event.target.dataset.id)
+function deleteAdventure(id) {
 
-  fetch(endPoint + `/${adventureId}`, {
-      method: 'DELETE'
+  fetch(`${endPoint}/${id}`, {
+    method: "DELETE" 
   })
+  .then(response => response.json())
+  .then(response => console.log(response))
 
   this.location.reload()
+
 }

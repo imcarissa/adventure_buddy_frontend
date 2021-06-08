@@ -1,22 +1,22 @@
 const endPoint = "http://localhost:3000/api/v1/adventures"
 
+
 document.addEventListener('DOMContentLoaded', () => {
     getAdventures()
 
     const createAdventureForm = document.querySelector ("#create-adventure-form")
-
     createAdventureForm.addEventListener("submit", (e) => createFormHandler(e))
-
 })
 
-document.addEventListener("click", function(e) {
-  const adventureCard = document.getElementById(`${e.target.dataset.id}`)
 
-  if(e.target.matches("#delete-btn")) {
-    e.preventDefault()
-    deleteAdventure(e.target.dataset.id)
-    adventureCard.remove(adventureCard)
-  }
+document.addEventListener("click", function(e) {
+    const adventureCard = document.getElementById(`${e.target.dataset.id}`)
+
+    if(e.target.matches("#delete-btn")) {
+      e.preventDefault()
+      deleteAdventure(e.target.dataset.id)
+      adventureCard.remove(adventureCard)
+    }
 })
 
 
@@ -35,43 +35,43 @@ function getAdventures() {
 
 
 function createFormHandler(e) {
-  e.preventDefault()
-  const titleInput = document.querySelector('#input-title').value
-  const locationInput = document.querySelector('#input-location').value
-  const descriptionInput = document.querySelector('#input-description').value
-  const imageInput = document.querySelector('#input-url').value
-  const categoryId = parseInt(document.querySelector('#categories').value)
-  postAdventures (titleInput, locationInput, descriptionInput, imageInput, categoryId)
+    e.preventDefault()
+    const titleInput = document.querySelector('#input-title').value
+    const locationInput = document.querySelector('#input-location').value
+    const descriptionInput = document.querySelector('#input-description').value
+    const imageInput = document.querySelector('#input-url').value
+    const categoryId = parseInt(document.querySelector('#categories').value)
+    postAdventures (titleInput, locationInput, descriptionInput, imageInput, categoryId)
 }
 
 
 function postAdventures(title, location, description, image_url, category_id) {
-  let bodyObj = {title, location, description, image_url, category_id}
+    let bodyObj = {title, location, description, image_url, category_id}
   
-  fetch(endPoint, {
-    method: "POST",
-    headers: {"Content-Type": "application/json"},
-    body: JSON.stringify(bodyObj)
+    fetch(endPoint, {
+      method: "POST",
+      headers: {"Content-Type": "application/json"},
+      body: JSON.stringify(bodyObj)
   })
-  .then(response => response.json())
-  .then(adventure => {
-    const adventureData = adventure.data
+    .then(response => response.json())
+    .then(adventure => {
+        const adventureData = adventure.data
     
-    let newAdventure = new Adventure(adventureData, adventureData.attributes)
+        let newAdventure = new Adventure(adventureData, adventureData.attributes)
 
-    document.querySelector('#adventure-container').innerHTML += newAdventure.renderAdventureCard()
+        document.querySelector('#adventure-container').innerHTML += newAdventure.renderAdventureCard()
   })
 }
 
 
 function deleteAdventure(id) {
 
-  fetch(`${endPoint}/${id}`, {
-    method: "DELETE" 
+   fetch(`${endPoint}/${id}`, {
+      method: "DELETE" 
   })
-  .then(response => response.json())
-  .then(response => console.log(response))
+    .then(response => response.json())
+    .then(response => console.log(response))
 
-  this.location.reload()
+    this.location.reload()
 
 }

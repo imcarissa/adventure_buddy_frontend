@@ -6,6 +6,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const createAdventureForm = document.querySelector ("#create-adventure-form")
 
     createAdventureForm.addEventListener("submit", (e) => createFormHandler(e))
+
 })
 
 
@@ -23,8 +24,8 @@ function getAdventures() {
 }
 
 
-function createFormHandler(e) {
-  e.preventDefault()
+function createFormHandler() {
+  event.preventDefault()
   const titleInput = document.querySelector('#input-title').value
   const locationInput = document.querySelector('#input-location').value
   const descriptionInput = document.querySelector('#input-description').value
@@ -52,13 +53,12 @@ function postAdventures(title, location, description, image_url, category_id) {
   })
 }
 
-function deleteAdventure(e) {
-  e.preventDefault()
-  let userId = parseInt(e.target.dataset.id)
+function deleteAdventure() {
 
-  fetch(endPoint + `/${this.id}`, {
-      method: "DELETE",
-      headers: {"Content-Type": "application/json"},
+  let adventureId = parseInt(event.target.dataset.id)
+
+  fetch(endPoint + `/${adventureId}`, {
+      method: 'DELETE'
   })
 
   this.location.reload()

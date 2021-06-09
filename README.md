@@ -33,7 +33,7 @@ Give a ⭐️ if this project helped you!
 
 ## 📝 License
 
-Copyright © 2021 [Carissa](https://github.com/imcarissa).<br />
+Copyright © 2021 [Carissa Sarreal](https://github.com/imcarissa).<br />
 This project is [MIT](https://opensource.org/licenses/MIT) licensed.
 
 ***

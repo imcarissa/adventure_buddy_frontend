@@ -1,3 +1,53 @@
 h1 {
-    color: maroon
+    color: maroon;
+    font-family: 'Neucha';
+}
+
+h3 {
+    color:rgb(59, 50, 80)
+}
+
+strong {
+    color:saddlebrown
+}
+
+body {
+    background-color: rgb(197, 178, 183);
+    color: rgb(3, 3, 3);
+    font-family: 'Neucha';
+    line-height: 18px;
+  }
+
+.form-container {
+    color: rgb(78, 78, 85)
+}
+
+#create-adventure-form {
+    text-align: center;
+    border:3px solid   
+}
+
+#adventure-container {
+    color: rgb(12, 12, 11)
+    
+}
+
+.submit {
+    border:2px solid rgb(59, 50, 80);
+    border-radius:1px;
+    padding:2px;
+    font-family: 'Neucha';
+    background:linear-gradient(to left,rgb(250, 246, 246),
+    rgb(96, 97, 99));
+    color:rgb(62, 10, 152)"
+}
+
+.btn {
+    border:2px solid rgb(59, 50, 80);
+    border-radius:1px;
+    padding:2px;
+    font-family: 'Neucha';
+    background:linear-gradient(to left,rgb(250, 246, 246),
+    rgb(173, 208, 236));
+    color:rgb(62, 10, 152)"
 }

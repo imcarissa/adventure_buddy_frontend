@@ -21,8 +21,8 @@ class Adventure {
           </div>
 
           <div class="btn-group">
-              <button data-id=${this.id} id="delete-btn" type="button" class="btn btn-sm btn-outline-secondary">Delete Adventure</button>
-            </div>
+              <button data-id=${this.id} id="delete-btn" type="button" class="btn">Delete Adventure</button>
+          </div>
           <br><br>`;     
       }
 }

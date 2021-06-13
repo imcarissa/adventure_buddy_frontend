@@ -30,7 +30,6 @@ body {
 
 #adventure-container {
     color: rgb(12, 12, 11)
-    
 }
 
 .submit {
@@ -38,9 +37,9 @@ body {
     border-radius:1px;
     padding:2px;
     font-family: 'Neucha';
-    background:linear-gradient(to left,rgb(250, 246, 246),
-    rgb(96, 97, 99));
-    color:rgb(62, 10, 152)
+    background:linear-gradient(to left,rgb(240, 219, 219),
+    rgb(141, 101, 123));
+    color:rgb(7, 7, 7)
 }
 
 .btn {
@@ -48,7 +47,7 @@ body {
     border-radius:1px;
     padding:2px;
     font-family: 'Neucha';
-    background:linear-gradient(to left,rgb(250, 246, 246),
+    background:linear-gradient(to left,rgb(238, 196, 196),
     rgb(173, 208, 236));
-    color:rgb(62, 10, 152)"
+    color:rgb(13, 12, 14)
 }

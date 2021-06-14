@@ -37,17 +37,17 @@ body {
     border-radius:1px;
     padding:2px;
     font-family: 'Neucha';
-    background:linear-gradient(to left,rgb(240, 219, 219),
-    rgb(141, 101, 123));
+    background:linear-gradient(to top,rgb(236, 213, 228),
+    rgb(133, 98, 117));
     color:rgb(7, 7, 7)
 }
 
-.btn {
+.delete-btn {
     border:2px solid rgb(59, 50, 80);
     border-radius:1px;
     padding:2px;
     font-family: 'Neucha';
-    background:linear-gradient(to left,rgb(238, 196, 196),
-    rgb(173, 208, 236));
+    background:linear-gradient(to top,rgb(245, 235, 241),
+    rgb(160, 163, 165));
     color:rgb(13, 12, 14)
 }

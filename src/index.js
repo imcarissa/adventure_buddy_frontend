@@ -70,6 +70,4 @@ function deleteAdventure(id) {
       method: "DELETE" 
   })
     .then(response => response.json())
-    .then(response => console.log(response))
-
 }

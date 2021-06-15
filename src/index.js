@@ -24,11 +24,12 @@ function getAdventures() {
     fetch(endPoint)
     .then(response => response.json())
     .then(adventures => {
+
       adventures.data.forEach(adventure => {
 
         let newAdventure = new Adventure(adventure, adventure.attributes)
 
-        document.querySelector('#adventure-container').innerHTML += newAdventure.renderAdventureCard()
+        document.querySelector('#adventure-container').innerHTML += newAdventure.renderAdventure()
       })
     })
 }
@@ -59,7 +60,7 @@ function postAdventures(title, location, description, image_url, category_id) {
     
         let newAdventure = new Adventure(adventureData, adventureData.attributes)
 
-        document.querySelector('#adventure-container').innerHTML += newAdventure.renderAdventureCard()
+        document.querySelector('#adventure-container').innerHTML += newAdventure.renderAdventure()
   })
 }
 

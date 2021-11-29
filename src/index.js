@@ -25,6 +25,11 @@ function getAdventures() {
     .then(response => response.json())
     .then(adventures => {
 
+      // live code portion
+      //   adventures.data.sort(function(adventure, adventure2) { 
+      //     adventure2.attributes.title.length - adventure.attributes.title.length
+      // });
+ 
       adventures.data.forEach(adventure => {
 
         let newAdventure = new Adventure(adventure, adventure.attributes)

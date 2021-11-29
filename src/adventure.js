@@ -9,7 +9,7 @@ class Adventure {
     this.category = adventureAttributes.category
     Adventure.all.push(this)
   }
-  
+   
   renderAdventure() {
     return `
     <div data-id=${this.id}>
